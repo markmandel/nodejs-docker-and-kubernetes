@@ -1,25 +1,27 @@
 #
-# Makefile for building and running this project
+# Makefile for building and developing this project
 #
-
-#--- Host Targets ---
 
 TAG=gcr.io/nodejs-k8s/dev
 NAME=nodejs-k8s-dev
 
-# build the docker image
+# Build the dev docker image
 build:
 	docker build --tag=$(TAG) dev
 
+# Clean up the dev docker image
 clean:
 	docker rmi $(TAG)
 
+# Push this docker image up to Google Container Repository
 push:
 	gcloud docker push $(TAG)
 
+# Pull this docker image down from Google Container Repository
 pull:
 	gcloud docker pull $(TAG)
 
+# Start the developer shell
 shell:
 	mkdir -p ~/.config/gcloud
 	docker run --rm \
@@ -35,8 +37,10 @@ shell:
 		-v `pwd`:/project \
 		-it $(TAG) /root/startup.sh
 
+# Attach a new terminal to an already running dev shell
 shell-attach:
 	docker exec -it --user=$(USER) $(NAME) zsh
 
+# Attach a root terminal to an already running dev shell
 shell-attach-root:
 	docker exec -t $(NAME) bash
