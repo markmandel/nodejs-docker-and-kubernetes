@@ -2,13 +2,13 @@
   "name": "helloworld",
   "version": "1.0.0",
   "description": "Says hello world!",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "node app.js"
   },
   "author": "Mark Mandel",
   "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "morgan": "^1.6.1"
   }
 }
