@@ -1,9 +1,9 @@
 #
 # Makefile for building and developing this project
 #
-
 TAG=gcr.io/nodejs-k8s/dev
 NAME=nodejs-k8s-dev
+SSH_PORT=$(word 2,$(subst :, ,$(shell docker port $(NAME) 22)))
 
 # Build the dev docker image
 build:
@@ -44,3 +44,8 @@ shell-attach:
 # Attach a root terminal to an already running dev shell
 shell-attach-root:
 	docker exec -t $(NAME) bash
+
+# Mounts the directories through sshfs to give access to dependencies
+mount:
+	mkdir -p /tmp/$(NAME)
+	sshfs $(USER)@0.0.0.0:/ /tmp/$(NAME) -p $(SSH_PORT) -o follow_symlinks
