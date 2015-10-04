@@ -1,9 +1,14 @@
 #
 # Makefile for building and developing this project
+# This was built for development on Linux. YMMV on other OS's.
 #
+
 TAG=gcr.io/nodejs-k8s/dev
 NAME=nodejs-k8s-dev
+# where the ssh port is redirected
 SSH_PORT=$(word 2,$(subst :, ,$(shell docker port $(NAME) 22)))
+#the id of the docker group
+DOCKER_GID=$(word 3,$(subst :, ,$(shell getent group docker)))
 
 # Build the dev docker image
 build:
@@ -31,9 +36,12 @@ shell:
 		-e HOST_GID=`id -g` \
 		-e HOST_UID=`id -u` \
 		-e HOST_USER=$(USER) \
+		-e DOCKER_GID=$(DOCKER_GID) \
 		-v ~/.config/gcloud:/home/$(USER)/.config/gcloud \
 		-v ~/.appcfg_oauth2_tokens:/home/$(USER)/.appcfg_oauth2_tokens \
 		-v `pwd`/dev/zshrc:/home/$(USER)/.zshrc \
+		-v /usr/bin/docker:/usr/bin/docker \
+		-v /var/run/docker.sock:/var/run/docker.sock \
 		-v `pwd`:/project \
 		-it $(TAG) /root/startup.sh
 

@@ -1,6 +1,8 @@
 FROM debian:jessie
 
-RUN apt-get update && apt-get -y install wget curl less unzip python zsh git make openssh-server
+RUN apt-get update && \
+    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1
+
 WORKDIR /
 
 #sshd setup - https://docs.docker.com/examples/running_ssh_service/

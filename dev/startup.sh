@@ -7,5 +7,9 @@ cp -r /root/oh-my-zsh /home/$HOST_USER/.oh-my-zsh
 chown -R $HOST_USER:$HOST_USER /home/$HOST_USER
 chown -R $HOST_USER:$HOST_USER /google-cloud-sdk
 
+#allow docker passthrough
+groupadd --gid $DOCKER_GID docker
+usermod -a -G docker $HOST_USER
+
 /usr/sbin/sshd
 su $HOST_USER
