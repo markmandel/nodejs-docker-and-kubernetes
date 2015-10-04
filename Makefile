@@ -10,21 +10,14 @@ SSH_PORT=$(word 2,$(subst :, ,$(shell docker port $(NAME) 22)))
 #the id of the docker group
 DOCKER_GID=$(word 3,$(subst :, ,$(shell getent group docker)))
 
+#
+# Host targets
+#
+
 # Build the dev docker image
 build:
 	docker build --tag=$(TAG) dev
-
-# Clean up the dev docker image
-clean:
-	docker rmi $(TAG)
-
-# Push this docker image up to Google Container Repository
-push:
-	gcloud docker push $(TAG)
-
-# Pull this docker image down from Google Container Repository
-pull:
-	gcloud docker pull $(TAG)
+	notify-send "dev build complete"
 
 # Start the developer shell
 shell:
@@ -53,6 +46,22 @@ shell-attach:
 shell-attach-root:
 	docker exec -it $(NAME) bash
 
+# Clean up the dev docker image
+clean:
+	docker rmi $(TAG)
+
+#
+# Dev shell targets
+#
+
+# Push this docker image up to Google Container Repository
+push:
+	gcloud docker push $(TAG)
+
+# Pull this docker image down from Google Container Repository
+pull:
+	gcloud docker pull $(TAG)
+
 # Mounts the directories through sshfs to give access to dependencies
 mount:
 	mkdir -p /tmp/$(NAME)
@@ -61,4 +70,7 @@ mount:
 # Run all the nodejs applications
 serve:
 	cd src/helloworld && make serve &
-	wait
+
+# shuts down all node processes
+serve-kill:
+	ps aux | grep node | awk '{print $$2}' | xargs kill
