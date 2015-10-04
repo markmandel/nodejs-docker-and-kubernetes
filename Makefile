@@ -50,6 +50,10 @@ shell-attach-root:
 clean:
 	docker rmi $(TAG)
 
+# Open Chrome up to the right exposed port from the docker shell.
+chrome:
+	google-chrome http://localhost:$(word 2,$(subst :, ,$(shell docker port $(NAME) $(PORT))))
+
 #
 # Dev shell targets
 #
