@@ -51,9 +51,14 @@ shell-attach:
 
 # Attach a root terminal to an already running dev shell
 shell-attach-root:
-	docker exec -t $(NAME) bash
+	docker exec -it $(NAME) bash
 
 # Mounts the directories through sshfs to give access to dependencies
 mount:
 	mkdir -p /tmp/$(NAME)
 	sshfs $(USER)@0.0.0.0:/ /tmp/$(NAME) -p $(SSH_PORT) -o follow_symlinks
+
+# Run all the nodejs applications
+serve:
+	cd src/helloworld && make serve &
+	wait
