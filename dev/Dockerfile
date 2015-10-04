@@ -23,7 +23,7 @@ ENV PATH /google-cloud-sdk/bin:$PATH
 RUN gcloud components update --quiet
 
 #install nodejs
-RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get install --yes nodejs
 
 WORKDIR /root
