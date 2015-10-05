@@ -3,7 +3,8 @@
 # This was built for development on Linux. YMMV on other OS's.
 #
 
-TAG=gcr.io/nodejs-k8s/dev
+PROJECT=connect-js
+TAG=gcr.io/$(PROJECT)/dev
 NAME=nodejs-k8s-dev
 # where the ssh port is redirected
 SSH_PORT=$(word 2,$(subst :, ,$(shell docker port $(NAME) 22)))

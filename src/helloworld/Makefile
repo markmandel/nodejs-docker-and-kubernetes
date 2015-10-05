@@ -4,7 +4,8 @@
 
 # Start the server and run it
 
-TAG=gcr.io/nodejs-k8s/helloworld:0.1
+PROJECT=connect-js
+TAG=gcr.io/$(PROJECT)/helloworld:0.1
 NAME=node-helloworld
 
 build: deps

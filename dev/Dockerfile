@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 RUN apt-get update && \
-    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1 parallel
+    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1
 
 WORKDIR /
 
