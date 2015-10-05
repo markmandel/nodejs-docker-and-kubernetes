@@ -17,7 +17,7 @@ DOCKER_GID=$(word 3,$(subst :, ,$(shell getent group docker)))
 # Build the dev docker image
 build:
 	docker build --tag=$(TAG) dev
-	notify-send "dev build complete"
+	notify-send "$(TAG) build complete"
 
 # Start the developer shell
 shell:
