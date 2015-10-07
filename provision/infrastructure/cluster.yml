@@ -1,0 +1,8 @@
+resources:
+- name: kubernetes-cluster
+  type: container.v1beta1.cluster
+  properties:
+    zoneId: us-central1-f
+    initialNodeCount: 3
+    name: sukieville
+    description: Where to host my fantastic website of dog pictures
