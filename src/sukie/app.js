@@ -8,7 +8,11 @@ var morgan = require('morgan');
 var app = express();
 app.set("view engine", "jade");
 
+//per request logging
 app.use(morgan('combined'));
+
+//static file serving
+app.use(express.static('public'));
 
 
 app.get('/', function(req, res) {

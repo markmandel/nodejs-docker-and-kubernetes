@@ -1,0 +1,18 @@
+/* Image cards */
+
+.image-card {
+  background-size: cover;
+  background-position: center;
+  height: 50%;
+}
+
+.image-card > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.card-comment {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}

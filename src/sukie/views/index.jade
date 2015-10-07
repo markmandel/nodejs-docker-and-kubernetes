@@ -1,6 +1,19 @@
 html
     head
         title Sukie is awesome
+        link(rel='stylesheet', href='https://storage.googleapis.com/code.getmdl.io/1.0.5/material.blue_grey-blue.min.css')
+        script(src='https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+        link(rel='stylesheet', href='/css/main.css')
     body
-        h1 Sukie!
-
+        div(class='mdl-layout mdl-js-layout mdl-color--grey-100')
+            header(class='mdl-layout__header mdl-layout--fixed-header')
+                div(class='mdl-layout__header-row')
+                    h1(class='mdl-layout-title') Sukie is Awesome
+            main(class='mdl-layout__content')
+                div(class='mdl-grid')
+                    div(class='mdl-cell mdl-cell--3-col')
+                    div(class='image-card mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col' style="background-image: url('/images/Sukie1.jpg');")
+                        div(class='mdl-card__title mdl-card--expand')
+                        div(class='mdl-card__actions')
+                            span(class='card-comment') I waitz.
