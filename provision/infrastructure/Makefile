@@ -2,7 +2,7 @@
 # Makefile for managing the infrastructure
 #
 
-NAME=kubernetes-cluster
+NAME=kubernetes-cluster-deployment-manager
 
 # DOES NOT WORK
 deploy:

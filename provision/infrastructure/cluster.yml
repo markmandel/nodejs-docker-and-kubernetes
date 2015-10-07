@@ -3,6 +3,11 @@ resources:
   type: container.v1beta1.cluster
   properties:
     zoneId: us-central1-f
-    initialNodeCount: 3
-    name: kubernetes-cluster
-    description: Where to host my fantastic website of dog pictures
+    cluster:
+      name: kubernetes-cluster
+      description: Lots of machines are needed to serve all the dog pictures.
+      numNodes: 3
+      masterAuth:
+        user: admin
+        password: supersecret
+

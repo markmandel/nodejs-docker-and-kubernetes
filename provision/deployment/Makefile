@@ -3,8 +3,8 @@
 #
 
 create:
-	kubectl create -f helloworld-replicationcontroller.yml
-	kubectl create -f helloworld-service.yml
+	kubectl create -f web-replicationcontroller.yml
+	kubectl create -f sukie-service.yml
 
 clean:
 	kubectl delete rc --all

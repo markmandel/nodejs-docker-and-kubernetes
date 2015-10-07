@@ -12,8 +12,8 @@ spec:
         role: web
     spec:
       containers:
-      - name: helloworld
-        image: gcr.io/connect-js/helloworld:0.1
+      - name: sukie
+        image: gcr.io/connect-js/sukie:0.1
         ports:
         - containerPort: 8080
 
