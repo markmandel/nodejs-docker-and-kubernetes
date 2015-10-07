@@ -20,7 +20,7 @@ RUN wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip && unzip
 RUN /google-cloud-sdk/install.sh --usage-reporting=true --path-update=true --bash-completion=true --rc-path=/root/.bashrc
 ENV PATH /google-cloud-sdk/bin:$PATH
 
-RUN gcloud components update --quiet
+RUN gcloud components update kubectl --quiet
 
 #install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \

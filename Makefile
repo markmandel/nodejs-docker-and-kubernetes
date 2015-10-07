@@ -23,6 +23,7 @@ build:
 # Start the developer shell
 shell:
 	mkdir -p ~/.config/gcloud
+	mkdir -p `pwd`/.kube
 	docker run --rm \
 		--name=$(NAME) \
 		-P=true \
@@ -33,6 +34,8 @@ shell:
 		-e DOCKER_GID=$(DOCKER_GID) \
 		-v ~/.config/gcloud:/home/$(USER)/.config/gcloud \
 		-v ~/.appcfg_oauth2_tokens:/home/$(USER)/.appcfg_oauth2_tokens \
+		-v `pwd`/.kube:/home/$(USER)/.kube \
+		-v `pwd`/dev/zshrc:/home/$(USER)/.zshrc \
 		-v `pwd`/dev/zshrc:/home/$(USER)/.zshrc \
 		-v /usr/bin/docker:/usr/bin/docker \
 		-v /var/run/docker.sock:/var/run/docker.sock \

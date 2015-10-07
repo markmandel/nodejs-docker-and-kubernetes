@@ -7,6 +7,13 @@ NAME=kubernetes-cluster
 deploy:
 	gcloud deployment-manager deployments create $(NAME) --config cluster.yml
 
-
 clean:
 	gcloud deployment-manager deployments delete $(NAME)
+
+gcloud-deploy:
+	gcloud container clusters create $(NAME) --zone us-central1-f --num-nodes 3
+
+# set cluster and get the credentials for kubectl
+auth:
+	gcloud config set container/cluster $(NAME)
+	gcloud container clusters get-credentials $(NAME)

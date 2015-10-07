@@ -4,5 +4,5 @@ resources:
   properties:
     zoneId: us-central1-f
     initialNodeCount: 3
-    name: sukieville
+    name: kubernetes-cluster
     description: Where to host my fantastic website of dog pictures
