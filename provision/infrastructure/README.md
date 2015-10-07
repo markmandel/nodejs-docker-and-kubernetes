@@ -1,1 +1,0 @@
-Creates the Kubernetes cluster on Google Container Engine using deployment manager
