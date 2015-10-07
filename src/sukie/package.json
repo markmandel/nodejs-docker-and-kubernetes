@@ -1,0 +1,16 @@
+{
+  "name": "Sukie",
+  "version": "1.0.0",
+  "description": "Pictures of my dog Sukie",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Mark Mandel",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "morgan": "^1.6.1"
+  }
+}
