@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: web
+spec:
+  replicas: 5
+  selector:
+    role: web
+  template:
+    metadata:
+      labels:
+        role: web
+    spec:
+      containers:
+      - name: helloworld
+        image: gcr.io/connect-js/helloworld:0.1
+        ports:
+        - containerPort: 8080
+
