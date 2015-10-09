@@ -2,7 +2,7 @@
 # Makefile for managing the infrastructure
 #
 
-NAME=kubernetes-cluster-deployment-manager
+NAME=kubernetes-cluster
 
 # DOES NOT WORK
 deploy:
@@ -11,10 +11,6 @@ deploy:
 # DOES NOT WORK
 clean:
 	gcloud deployment-manager deployments delete $(NAME)
-
-# Used gcloud to spin up a kubernetes cluster with 3 nodes.
-gcloud-deploy:
-	gcloud container clusters create $(NAME) --zone us-central1-f --num-nodes 3
 
 # set cluster and get the credentials for kubectl
 auth:
