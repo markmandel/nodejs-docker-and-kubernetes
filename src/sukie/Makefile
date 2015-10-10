@@ -3,8 +3,10 @@
 #
 
 PROJECT=connect-js
-TAG=gcr.io/$(PROJECT)/sukie:0.1
+TAG_VERSIOM=0.1
+TAG=gcr.io/$(PROJECT)/sukie:$(VERSION)
 NAME=node-sukie
+PORT=8080
 
 # build the docker image
 build: deps
