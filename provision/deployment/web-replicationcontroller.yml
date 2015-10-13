@@ -3,8 +3,9 @@ kind: ReplicationController
 metadata:
   name: web-v1
   version: v1
+  visualize: "true"
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     role: web
     version: v1
@@ -13,6 +14,7 @@ spec:
       labels:
         role: web
         version: v1
+        visualize: "true"
     spec:
       containers:
       - name: sukie

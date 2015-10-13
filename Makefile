@@ -28,6 +28,7 @@ shell:
 	mkdir -p `pwd`/.kube
 	docker run --rm \
 		--name=$(NAME) \
+		-p=8001:8001 \
 		-P=true \
 		-e TERM \
 		-e HOST_GID=`id -g` \
@@ -84,3 +85,6 @@ serve:
 # shuts down all node processes
 serve-kill:
 	ps aux | grep node | awk '{print $$2}' | xargs kill
+
+proxy:
+	kubectl proxy --www=/home/$(USER)/gcp-live-k8s-visualizer --www-prefix=/static/ --api-prefix=/api/

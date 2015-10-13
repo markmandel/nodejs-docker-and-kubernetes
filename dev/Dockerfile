@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 RUN apt-get update && \
-    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1
+    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1 git
 
 WORKDIR /
 
@@ -26,7 +26,11 @@ RUN gcloud components update kubectl --quiet
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get install --yes nodejs
 
+
 WORKDIR /root
+
+#install kubectl visualiser
+RUN git clone https://github.com/saturnism/gcp-live-k8s-visualizer.git
 
 #oh-my-zsh, because how do we live without it?
 RUN git clone https://github.com/robbyrussell/oh-my-zsh.git
