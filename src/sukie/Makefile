@@ -3,14 +3,17 @@
 #
 
 PROJECT=connect-js
-TAG_VERSIOM=0.1
-TAG=gcr.io/$(PROJECT)/sukie:$(VERSION)
+TAG_VERSION=0.1
+TAG=gcr.io/$(PROJECT)/sukie:$(TAG_VERSION)
 NAME=node-sukie
 PORT=8080
 
 # build the docker image
 build: deps
 	docker build --tag=$(TAG) .
+
+clean:
+	docker rmi $(TAG)
 
 # push the docker image up to the Google Container repository
 push:

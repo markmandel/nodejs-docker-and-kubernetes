@@ -10,6 +10,8 @@ NAME=nodejs-k8s-dev
 SSH_PORT=$(word 2,$(subst :, ,$(shell docker port $(NAME) 22)))
 #the id of the docker group
 DOCKER_GID=$(word 3,$(subst :, ,$(shell getent group docker)))
+#default web port
+PORT=8080
 
 #
 # Host targets

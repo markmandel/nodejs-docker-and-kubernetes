@@ -1,22 +1,23 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: web-v1
-  version: v1
+  name: web-v2
+  version: v2
 spec:
   replicas: 5
   selector:
     role: web
-    version: v1
+    version: v2
   template:
     metadata:
       labels:
         role: web
-        version: v1
+        version: v2
     spec:
       containers:
       - name: sukie
-        image: gcr.io/connect-js/sukie:0.1
+        image: gcr.io/connect-js/sukie:0.2
         ports:
         - containerPort: 8080
       imagePullPolicy: Always
+
