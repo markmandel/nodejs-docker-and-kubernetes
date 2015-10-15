@@ -3,6 +3,7 @@
 #
 
 NAME=kubernetes-cluster
+ZONE=us-central1-f
 
 # DOES NOT WORK
 deploy:
@@ -15,4 +16,5 @@ clean:
 # set cluster and get the credentials for kubectl
 auth:
 	gcloud config set container/cluster $(NAME)
+	gcloud config set compute/zone $(ZONE)
 	gcloud container clusters get-credentials $(NAME)
