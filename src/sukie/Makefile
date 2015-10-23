@@ -2,13 +2,13 @@
 # Makefile for this application
 #
 
-PROJECT=connect-js
+PROJECT=$(shell gcloud config list project | awk 'FNR ==2 { print $$3 }')
 TAG_VERSION=0.1
 TAG=gcr.io/$(PROJECT)/sukie:$(TAG_VERSION)
 NAME=node-sukie
 PORT=8080
 
-# build the docker image
+# build the docker image|
 build: deps
 	docker build --tag=$(TAG) .
 

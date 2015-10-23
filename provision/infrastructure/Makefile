@@ -4,16 +4,18 @@
 
 NAME=kubernetes-cluster
 ZONE=us-central1-f
+CONFIG=nodejs-k8s
 
-# DOES NOT WORK
+# Create kubernetes cluster
 deploy:
 	gcloud deployment-manager deployments create $(NAME) --config cluster.yml
 
-# DOES NOT WORK
+# Deletes entire deployment
 clean:
 	gcloud deployment-manager deployments delete $(NAME)
 
-# set cluster and get the credentials for kubectl
+# Sets up a configuration called nodejs-k8s
+# Switches to it, and configures the required properties
 auth:
 	gcloud config set container/cluster $(NAME)
 	gcloud config set compute/zone $(ZONE)

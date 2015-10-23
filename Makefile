@@ -3,8 +3,8 @@
 # This was built for development on Linux. YMMV on other OS's.
 #
 
-PROJECT=connect-js
-TAG=gcr.io/$(PROJECT)/dev
+PROJECT=$(shell gcloud config list project | awk 'FNR ==2 { print $$3 }')
+TAG=nodejs-k8s-dev
 NAME=nodejs-k8s-dev
 # where the ssh port is redirected
 SSH_PORT=$(word 2,$(subst :, ,$(shell docker port $(NAME) 22)))
@@ -61,6 +61,10 @@ clean:
 chrome:
 	google-chrome http://localhost:$(word 2,$(subst :, ,$(shell docker port $(NAME) $(PORT))))
 
+# show what your project is. Useful debugging.
+project:
+	echo $(PROJECT)
+
 #
 # Dev shell targets
 #
@@ -86,5 +90,6 @@ serve:
 serve-kill:
 	ps aux | grep node | awk '{print $$2}' | xargs kill
 
-proxy:
+# start the visualiser
+visualise:
 	kubectl proxy --www=/home/$(USER)/gcp-live-k8s-visualizer --www-prefix=/static/ --api-prefix=/api/

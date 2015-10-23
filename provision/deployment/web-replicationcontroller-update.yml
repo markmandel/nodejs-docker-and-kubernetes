@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: sukie
-        image: gcr.io/connect-js/sukie:0.2
+        image: gcr.io/${PROJECT}/sukie:0.2
         ports:
         - containerPort: 8080
