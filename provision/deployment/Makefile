@@ -44,4 +44,4 @@ watch:
 
 # start the visualiser
 visualise:
-	kubectl proxy --www=/home/$(USER)/gcp-live-k8s-visualizer --www-prefix=/static/ --api-prefix=/api/
+	kubectl proxy --www=/home/$(shell whoami)/gcp-live-k8s-visualizer --www-prefix=/static/ --api-prefix=/api/
