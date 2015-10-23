@@ -6,7 +6,6 @@ PROJECT=$(shell gcloud config list project | awk 'FNR ==2 { print $$3 }')
 TAG_VERSION=0.1
 TAG=gcr.io/$(PROJECT)/sukie:$(TAG_VERSION)
 NAME=node-sukie
-PORT=8080
 
 # build the docker image|
 build: deps
@@ -32,7 +31,3 @@ serve-docker:
 
 stop-docker:
 	docker stop $(NAME)
-
-# Open Chrome up to the right exposed port from the docker shell.
-chrome:
-	google-chrome http://localhost:$(word 2,$(subst :, ,$(shell docker port $(NAME) $(PORT))))

@@ -14,7 +14,7 @@ DOCKER_GID=$(word 3,$(subst :, ,$(shell getent group docker)))
 PORT=8080
 
 #
-# Host targets
+# All targets to be run on host
 #
 
 # Build the dev docker image
@@ -65,31 +65,7 @@ chrome:
 project:
 	echo $(PROJECT)
 
-#
-# Dev shell targets
-#
-
-# Push this docker image up to Google Container Repository
-push:
-	gcloud docker push $(TAG)
-
-# Pull this docker image down from Google Container Repository
-pull:
-	gcloud docker pull $(TAG)
-
 # Mounts the directories through sshfs to give access to dependencies
 mount:
 	mkdir -p /tmp/$(NAME)
 	sshfs $(USER)@0.0.0.0:/ /tmp/$(NAME) -p $(SSH_PORT) -o follow_symlinks
-
-# Run all the nodejs applications
-serve:
-	cd src/helloworld && make serve &
-
-# shuts down all node processes
-serve-kill:
-	ps aux | grep node | awk '{print $$2}' | xargs kill
-
-# start the visualiser
-visualise:
-	kubectl proxy --www=/home/$(USER)/gcp-live-k8s-visualizer --www-prefix=/static/ --api-prefix=/api/

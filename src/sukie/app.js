@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 
 app.get('/', function(req, res) {
-    res.render("index");
+    res.render("index2");
 })
 
 //get the port

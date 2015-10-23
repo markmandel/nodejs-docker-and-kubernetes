@@ -16,3 +16,9 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+@media all and (min-aspect-ratio: 2/1) {
+  .image-card {
+    height: 90%;
+  }
+}
