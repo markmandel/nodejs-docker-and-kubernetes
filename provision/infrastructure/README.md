@@ -7,5 +7,5 @@ Run:
 
 ```bash
 make deploy #creates the cluster
-make auth #configures local project settings and auth against kubernetes, so you can use kubectl.
+make auth #configures local project settings and auth against Kubernetes, so you can use kubectl.
 ```

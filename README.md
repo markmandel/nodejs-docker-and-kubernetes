@@ -1,15 +1,16 @@
-NodeJS example with Kuberenetes
+NodeJS example with Kubernetes
 ================================
 
 This is a very simple example of running NodeJS on Kuberenetes.
 
-It comes with several Makefiles for setup and teardown.
+It comes with several Makefiles for setup and teardown of the infrastructure on Google Cloud Platform, as well
+as for Kubernetes itself.
 
 ## Running the Code
 
-Make sure you have a project value already set in your `gcloud` configuration, before using this.
+Make sure you have a project value already set in your Google Cloud SDK configuration, before using this.
 
-To setup the initial infrastructure, see [provision/infrastructure](provision/infrastructure/README.md)
+To setup the initial infrastructure (the Kubernetes cluster) , see [provision/infrastructure](provision/infrastructure/README.md)
 
 To create the Docker images associated with the examples, see [src/sukie](src/sukie/README.md)
  
