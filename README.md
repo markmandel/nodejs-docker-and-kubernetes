@@ -1,7 +1,7 @@
 NodeJS example with Kubernetes
 ================================
 
-This is a very simple example of running NodeJS on Kuberenetes.
+This is a very simple example of running NodeJS on Kubernetes.
 
 It comes with several Makefiles for setup and teardown of the infrastructure on Google Cloud Platform, as well
 as for Kubernetes itself.
