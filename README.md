@@ -23,6 +23,9 @@ be built via `make build` in the root directory.
 
 To start the developer shell, use `make shell`. This has only been tested on Linux, YMMV.
 
+## Presentation Recordings:
+- [Connect JS, 16th Oct. 2015](https://www.youtube.com/watch?v=cHBkc-Qcxz8)
+
 ## Licence
 Apache 2.0
 
