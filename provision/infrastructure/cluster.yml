@@ -2,7 +2,7 @@ resources:
 - name: kubernetes-cluster
   type: container.v1.cluster
   properties:
-    zone: us-central1-fRight ow Right nRight n
+    zone: us-central1-f
     cluster:
       name: kubernetes-cluster
       description: Lots of machines are needed to serve all the dog pictures.
