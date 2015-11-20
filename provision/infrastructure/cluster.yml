@@ -7,6 +7,9 @@ resources:
       name: kubernetes-cluster
       description: Lots of machines are needed to serve all the dog pictures.
       initialNodeCount: 3
+      nodeConfig:
+        oauthScopes:
+          - https://www.googleapis.com/auth/devstorage.read_only
       masterAuth:
         username: admin
         password: supersecret

@@ -2,8 +2,9 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: web-v1
-  version: v1
-  visualize: "true"
+  labels:
+    version: v1
+    visualize: "true"
 spec:
   replicas: 3
   selector:

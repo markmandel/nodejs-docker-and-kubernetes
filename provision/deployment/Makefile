@@ -44,4 +44,6 @@ watch:
 
 # start the visualiser
 visualise:
+	-killall tinyproxy
+	tinyproxy -c tinyproxy.conf
 	kubectl proxy --www=/home/$(shell whoami)/gcp-live-k8s-visualizer --www-prefix=/static/ --api-prefix=/api/

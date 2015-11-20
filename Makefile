@@ -29,6 +29,7 @@ shell:
 	docker run --rm \
 		--name=$(NAME) \
 		-p=8001:8001 \
+		-p=8002:8002 \
 		-P=true \
 		-e TERM \
 		-e HOST_GID=`id -g` \
