@@ -4,7 +4,6 @@
 
 PROJECT=$(shell gcloud config list project | awk 'FNR ==2 { print $$3 }')
 RESIZE=5
-RC=web-v1
 
 # Create the Service and Replication Controller
 create: create-service create-rc
@@ -13,34 +12,30 @@ create: create-service create-rc
 create-service:
 	kubectl create -f sukie-service.yml
 
-# Create the Replication Controller
-create-rc:
-	@cp web-replicationcontroller.yml /tmp/
-	@sed -i 's/$${PROJECT}/$(PROJECT)/g' web-replicationcontroller.yml
-	kubectl create -f web-replicationcontroller.yml
-	@cp /tmp/web-replicationcontroller.yml .
+# Create the Replica Set Deployment
+apply-rs:
+	@cp sukie-deployment.yaml /tmp/
+	@sed -i 's/$${PROJECT}/$(PROJECT)/g' sukie-deployment.yaml
+	kubectl apply -f sukie-deployment.yaml --record
+	@cp /tmp/sukie-deployment.yaml .
 
-# Resize the Replication Controller to 5 instances
+# Resize the Replica Set to 5 instances
 resize:
-	kubectl scale rc $(RC) --replicas=$(RESIZE)
+	kubectl scale deployment web --replicas=$(RESIZE)
 
-# Do a rolling update to sukie:0.2
 update:
-	@cp web-replicationcontroller-update.yml /tmp/
-	@sed -i 's/$${PROJECT}/$(PROJECT)/g' web-replicationcontroller-update.yml
-	kubectl rolling-update $(RC) --update-period="1s" -f web-replicationcontroller-update.yml
-	@cp /tmp/web-replicationcontroller-update.yml .
+	kubectl edit deployment web --record
 
 # Delete the Service and Replication Controllers
 clean:
-	kubectl delete rc --all
+	kubectl delete deployments --all
 	kubectl delete service --all
 
 # Watch the currently active pods
 watch:
 	watch -n 1 "echo 'PODS:' && kubectl get pods && \
 		echo '---' '\nSERVICES:' && kubectl get service && \
-		echo --- '\nREPLICATION CONTROLLERS:' && kubectl get rc"
+		echo --- '\nREPLICA SETS:' && kubectl get rs"
 
 # start the visualiser
 visualise:

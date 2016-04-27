@@ -39,7 +39,7 @@ shell:
 		-v ~/.config/gcloud:/home/$(USER)/.config/gcloud \
 		-v ~/.appcfg_oauth2_tokens:/home/$(USER)/.appcfg_oauth2_tokens \
 		-v `pwd`/.kube:/home/$(USER)/.kube \
-		-v `pwd`/dev/zshrc:/home/$(USER)/.zshrc \
+		-v `pwd`/dev/nanorc:/home/$(USER)/.nanorc \
 		-v `pwd`/dev/zshrc:/home/$(USER)/.zshrc \
 		-v /usr/bin/docker:/usr/bin/docker \
 		-v /var/run/docker.sock:/var/run/docker.sock \

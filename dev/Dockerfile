@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 RUN apt-get update && \
-    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1 git tinyproxy
+    apt-get -y install wget curl less unzip python zsh git make openssh-server libapparmor1 git tinyproxy nano
 
 WORKDIR /
 
@@ -25,7 +25,6 @@ RUN gcloud components update kubectl --quiet
 #install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get install --yes nodejs
-
 
 WORKDIR /root
 
