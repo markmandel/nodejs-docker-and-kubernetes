@@ -33,7 +33,7 @@ app.use(express.static('public'));
 
 app.get('/', function(req, res) {
     res.render("index");
-})
+});
 
 //get the port
 var port = process.env.PORT || 8080;
