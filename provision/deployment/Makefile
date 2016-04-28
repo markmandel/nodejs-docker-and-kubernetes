@@ -6,7 +6,7 @@ PROJECT=$(shell gcloud config list project | awk 'FNR ==2 { print $$3 }')
 RESIZE=5
 
 # Create the Service and Replication Controller
-create: create-service create-rc
+create: create-service apply-rs
 
 # Create the Service
 create-service:

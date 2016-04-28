@@ -10,7 +10,7 @@ currently active on the Kubernetes cluster
 make watch
 ```
 
-## Create the initial Replication Controller and Service
+## Create the initial Replica Set and Service
 
 This will deploy the `sukie:0.1` Docker image to Kubernetes, and start 3 instances of the container across the cluster,
 and create the `sukie` service, which exposes these containers.
@@ -34,3 +34,6 @@ To do a rolling update to Docker image `sukie:0.2`, run:
 ```bash
 make update
 ```
+
+This will allow you to edit the yaml for this Replica Set. Change the image to `sukie:0.2`
+in the yaml, save the file and exit the editor.
